@@ -11,15 +11,9 @@ class Counter extends Component {
   } */
 
   //Note, arrow function is experimental and may break in future, else do above approach.
-  handleIncrement = product => {
-    console.log(product);
+  handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });
   };
-
-  product = {
-    id: 2
-  };
-
   state = {
     count: 0,
     tags: ["tag1", "tag2", "tag3"]
@@ -27,15 +21,15 @@ class Counter extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <span className={this.getBadgeClasses()}>{this.formaCount()}</span>
         <button
-          onClick={() => this.handleIncrement(this.product)}
+          onClick={this.handleIncrement}
           className="btn btn-secondary btn-sm"
         >
           Increment
         </button>
-      </React.Fragment>
+      </div>
     );
   }
 
