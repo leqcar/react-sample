@@ -14,6 +14,7 @@ class Counter extends Component {
   handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });
   };
+
   state = {
     count: 0,
     tags: ["tag1", "tag2", "tag3"]
@@ -23,11 +24,6 @@ class Counter extends Component {
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formaCount()}</span>
-        <ul>
-          {this.state.tags.map(tag => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
         <button
           onClick={this.handleIncrement}
           className="btn btn-secondary btn-sm"
