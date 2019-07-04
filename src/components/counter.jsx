@@ -15,7 +15,7 @@ class Counter extends Component {
     this.setState({ count: this.state.count + 1 });
   };
   state = {
-    count: 0,
+    count: this.props.value,
     tags: ["tag1", "tag2", "tag3"]
   };
 
