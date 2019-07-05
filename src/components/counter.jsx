@@ -11,21 +11,16 @@ class Counter extends Component {
   } */
 
   //Note, arrow function is experimental and may break in future, else do above approach.
-  handleIncrement = () => {
-    this.setState({ value: this.state.value + 1 });
-  };
-
-  state = {
-    value: this.props.counter.value,
-    tags: ["tag1", "tag2", "tag3"]
-  };
+  // handleIncrement = () => {
+  //   this.setState({ value: this.state.value + 1 });
+  // };
 
   render() {
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formaCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -42,7 +37,7 @@ class Counter extends Component {
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
@@ -51,7 +46,7 @@ class Counter extends Component {
     //return this.state.count === 0 ? 'Zero' :  this.state.count;
 
     //destructing
-    const { value: count } = this.state;
+    const { value: count } = this.props.counter;
     return count === 0 ? "Zero" : count;
   }
 }
