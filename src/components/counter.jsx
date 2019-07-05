@@ -15,6 +15,15 @@ class Counter extends Component {
   //   this.setState({ value: this.state.value + 1 });
   // };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Previous Props", prevProps);
+    console.log("Previous State", prevState);
+  }
+
+  componentWillUnmount() {
+    console.log("*** Counter Unmount");
+  }
+
   render() {
     const { onIncrement, onDelete, counter } = this.props;
     console.log("*** Counter Rendered");
