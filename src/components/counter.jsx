@@ -17,7 +17,7 @@ class Counter extends Component {
 
   render() {
     const { onIncrement, onDelete, counter } = this.props;
-
+    console.log("*** Counter Rendered");
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formaCount()}</span>
